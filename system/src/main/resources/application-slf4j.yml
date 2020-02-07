@@ -1,0 +1,9 @@
+logging:
+  level:
+    root: debug
+  #    com.lyg.blog: debug
+  file:
+    name: ./logs/myBlog.log
+    max-history: 7
+    max-size: 10MB
+    total-size-cap: 10240MB

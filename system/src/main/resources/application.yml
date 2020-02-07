@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: mySuperBlog
+  profiles:
+    active: slf4j,tomcat,db
+
+
