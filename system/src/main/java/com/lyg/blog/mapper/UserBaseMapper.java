@@ -2,6 +2,7 @@ package com.lyg.blog.mapper;
 
 import com.lyg.blog.mapper.provider.UserBaseMapperProvider;
 import com.lyg.blog.pojo.UserBase;
+import com.lyg.blog.pojo.bo.UpdateUserPassword;
 import org.apache.ibatis.annotations.*;
 
 import java.util.Collection;
@@ -27,6 +28,11 @@ public interface UserBaseMapper {
     @InsertProvider(type = UserBaseMapperProvider.class, method = "insertAll")
     int insertAll(@Param("base") Collection<UserBase>  userBase);
 
+    @UpdateProvider(type = UserBaseMapperProvider.class, method = "update")
+    boolean update(@Param("base") UserBase userBase);
+
     @SelectProvider(type = UserBaseMapperProvider.class, method = "getOne")
     UserBase getOne(@Param("base") UserBase userBase);
+
+
 }

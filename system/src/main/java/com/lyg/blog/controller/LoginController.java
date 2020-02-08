@@ -3,6 +3,7 @@ package com.lyg.blog.controller;
 import com.lyg.blog.annotations.Log;
 import com.lyg.blog.pojo.UserBase;
 import com.lyg.blog.pojo.UserPlus;
+import com.lyg.blog.pojo.bo.UpdateUserPassword;
 import com.lyg.blog.pojo.vo.ResponseDomain;
 import com.lyg.blog.service.UserBaseService;
 import com.lyg.blog.service.UserPlusService;
@@ -72,9 +73,9 @@ public class LoginController {
      */
     @Log(value = "更新密码", save = true)
     @PostMapping("/updatePassWord")
-    public ResponseDomain updatePassWord(@RequestBody UserBase userBase) {
+    public ResponseDomain updatePassWord(@RequestBody UpdateUserPassword updateUser) {
         ResponseDomain result = new ResponseDomain<>();
-        if (userBaseService.update(userBase)) result.setSuccess();
+        if (userBaseService.updatePassWord(updateUser)) result.setSuccess();
         return result;
     }
 

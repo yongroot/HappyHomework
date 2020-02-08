@@ -2,10 +2,10 @@ package com.lyg.blog.service.impl;
 
 import com.lyg.blog.mapper.UserBaseMapper;
 import com.lyg.blog.pojo.UserBase;
+import com.lyg.blog.pojo.bo.UpdateUserPassword;
 import com.lyg.blog.service.UserBaseService;
 import com.lyg.blog.utils.MD5Util;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Collection;
@@ -21,10 +21,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Service
 public class UserBaseServiceImpl implements UserBaseService {
+
     /**
      * 缓存登录信息, 减少db压力
+     * key为用户账号, 配置好初始最大值有利于减少扩容频率及其重算Hash的开销
+     * 理论上直接填写用户总数最佳
+     * value[0]为前端用户传来的密码,value[1]为服务器生成的token
      */
-    private Map<String, String[]> TokenCache = new ConcurrentHashMap<>();
+    private static final int PredictTotal = 1000;
+    private static final Map<String, String[]> TokenCache = new ConcurrentHashMap<>((int) ((PredictTotal / 0.75) + 1));
 
     @Resource
     private UserBaseMapper userBaseMapper;
@@ -37,16 +42,16 @@ public class UserBaseServiceImpl implements UserBaseService {
 
         String[] userInfo = TokenCache.get(account);
 
-        // 账号存在登录缓存，从缓存获取密码验证，正确直接弹回token
-        if (userInfo != null && userInfo[1].equals(passWord)) {
-            token = userInfo[2];
+        // 账号存在登录缓存，从缓存获取密码验证
+        if (userInfo != null && userInfo[0].equals(passWord)) {
+            token = userInfo[1];
         }
-        // 进行db验证账号密码，生成并缓存token
+        // db验证账号密码，生成并缓存token
         else {
             int salt = userBaseMapper.getSalt(userBase.getAccount());
             userBase.setPassWord(MD5Util.getMD5(userBase.getPassWord() + salt));
             if (userBaseMapper.loginIn(userBase)) {
-                TokenCache.put(account, new String[]{account, passWord, token = UUID.randomUUID().toString()});
+                TokenCache.put(account, new String[]{passWord, token = UUID.randomUUID().toString()});
             }
         }
         // 密码错误时token为null
@@ -56,9 +61,23 @@ public class UserBaseServiceImpl implements UserBaseService {
     @Override
     public void loginOut(String account, String token) {
         String[] userCache = TokenCache.get(account);
-        if (userCache != null && userCache[3].equals(token)) {
+        if (userCache != null && userCache[1].equals(token)) {
             TokenCache.remove(account);
         }
+    }
+
+    @Override
+    public boolean updatePassWord(UpdateUserPassword info) {
+        String token = loginIn(info, false);
+        if (token != null) {
+            String newPassWord = info.getNewPassword();
+            info.setPassWord(newPassWord);
+            addSalt(info);
+            if (userBaseMapper.update(info)) {
+                TokenCache.put(info.getAccount(), new String[]{newPassWord, token});
+            }
+        }
+        return false;
     }
 
     @Override
