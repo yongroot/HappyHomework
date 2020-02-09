@@ -6,8 +6,6 @@
 - [x] 增加insertAll和getOne,listAll和支持分页的list 当然都是通用Provider
 - [x] 增强了通用update
 - [x] 写了个图片转spring启动banner的小工具
-
-批量插入
 ---
 #### 2020/02/08
 - [x] 增加密码重设入口
