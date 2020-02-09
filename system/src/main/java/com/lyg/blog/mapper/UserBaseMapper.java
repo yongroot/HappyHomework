@@ -2,7 +2,6 @@ package com.lyg.blog.mapper;
 
 import com.lyg.blog.mapper.provider.UserBaseMapperProvider;
 import com.lyg.blog.pojo.UserBase;
-import com.lyg.blog.pojo.bo.UpdateUserPassword;
 import org.apache.ibatis.annotations.*;
 
 import java.util.Collection;
@@ -15,24 +14,21 @@ import java.util.Collection;
 @Mapper
 public interface UserBaseMapper {
 
-//    @SelectProvider(type = UserBaseMapperProvider.class, method = "loginIn")
     @Select("select count(1) from t_user where account = #{base.account} and passWord = #{base.passWord}")
     boolean loginIn(@Param("base") UserBase userBase);
 
-    @Select("select salt from t_user where account = #{0}")
-    int getSalt(String account);
+    @Select("select salt from t_user where account = #{account}")
+    Integer getSalt(@Param("account") String account);
 
     @InsertProvider(type = UserBaseMapperProvider.class, method = "insert")
     boolean insert(@Param("base") UserBase userBase);
 
     @InsertProvider(type = UserBaseMapperProvider.class, method = "insertAll")
-    int insertAll(@Param("base") Collection<UserBase>  userBase);
+    int insertAll(@Param("base") Collection<UserBase> userBase);
 
     @UpdateProvider(type = UserBaseMapperProvider.class, method = "update")
     boolean update(@Param("base") UserBase userBase);
 
     @SelectProvider(type = UserBaseMapperProvider.class, method = "getOne")
     UserBase getOne(@Param("base") UserBase userBase);
-
-
 }

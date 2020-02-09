@@ -43,7 +43,8 @@ public class UserPlus extends UserBase implements Serializable {
 
     /**
      * 性别
+     * 0男1女
      */
     @Column(table = "t_user_plus")
-    private byte sex;
+    private int sex;
 }

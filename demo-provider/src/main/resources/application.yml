@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: demo-provider
+server:
+  port: 8080
+logging:
+  level:
+    root: debug

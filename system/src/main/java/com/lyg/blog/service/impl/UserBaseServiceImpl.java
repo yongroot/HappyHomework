@@ -48,10 +48,12 @@ public class UserBaseServiceImpl implements UserBaseService {
         }
         // db验证账号密码，生成并缓存token
         else {
-            int salt = userBaseMapper.getSalt(userBase.getAccount());
-            userBase.setPassWord(MD5Util.getMD5(userBase.getPassWord() + salt));
-            if (userBaseMapper.loginIn(userBase)) {
-                TokenCache.put(account, new String[]{passWord, token = UUID.randomUUID().toString()});
+            Integer salt = userBaseMapper.getSalt(userBase.getAccount());
+            if (salt != null) {
+                userBase.setPassWord(MD5Util.getMD5(userBase.getPassWord() + salt));
+                if (userBaseMapper.loginIn(userBase)) {
+                    TokenCache.put(account, new String[]{passWord, token = UUID.randomUUID().toString()});
+                }
             }
         }
         // 密码错误时token为null

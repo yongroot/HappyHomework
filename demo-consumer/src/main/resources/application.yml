@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: demo-consumer
+server:
+  port: 8081
+
+logging:
+  level:
+    root: debug

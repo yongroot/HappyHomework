@@ -1,5 +1,6 @@
 package com.lyg.blog.controller;
 
+import com.github.pagehelper.Page;
 import com.lyg.blog.annotations.Log;
 import com.lyg.blog.pojo.UserBase;
 import com.lyg.blog.pojo.UserPlus;
@@ -9,7 +10,10 @@ import com.lyg.blog.service.UserBaseService;
 import com.lyg.blog.service.UserPlusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by winggonLee on 2020/2/6
@@ -77,6 +81,14 @@ public class LoginController {
         ResponseDomain result = new ResponseDomain<>();
         if (userBaseService.updatePassWord(updateUser)) result.setSuccess();
         return result;
+    }
+
+    /**
+     * 获取个人信息
+     */
+    @PostMapping("/getInfo")
+    public ResponseDomain getInfo(@RequestBody UserPlus userPlus) {
+        return new ResponseDomain<>().setData(userPlusService.getOne(userPlus)).setSuccess();
     }
 
     /**

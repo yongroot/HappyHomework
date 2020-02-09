@@ -1,6 +1,6 @@
 logging:
   level:
-    root: debug
+    root: info
 #    com.lyg.blog: debug
 #  file:
 #    name: logs/myBlog.log
