@@ -19,7 +19,7 @@ public class UserBase implements Serializable {
     /**
      * 登录账号
      */
-    @Column(updateKey = true, table = {"t_user","t_user_plus"}, name = "account")
+    @Column(updateKey = true, table = {"t_user", "t_user_plus"}, name = "account")
     private String account;
 
     /**

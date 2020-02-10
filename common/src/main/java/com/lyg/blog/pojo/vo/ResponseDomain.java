@@ -23,6 +23,7 @@ public class ResponseDomain<T> implements Serializable {
 
     /**
      * set from Aspect.doAround
+     *
      * @param timestamp
      */
     public void setTimestamp(long timestamp) {

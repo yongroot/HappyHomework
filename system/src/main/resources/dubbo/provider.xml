@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--本服务模块名称-->
+    <dubbo:application name="zkProvider"/>
+
+    <!--本服务dubbo协议暴露接口-->
+    <dubbo:protocol name="blog" port="20890"/>
+
+    <!--zookeeper服务器地址-->
+    <dubbo:registry protocol="zookeeper" address="192.168.140.133:2181" file="ProviderRegistryCache" timeout="60000"/>
+
+    <!-- 开放服务 -->
+    <bean id="userBaseService" class="com.lyg.blog.service.impl.UserBaseServiceImpl"/>
+    <dubbo:service interface="com.lyg.blog.service.UserBaseService" ref="userBaseService" protocol="dubbo"
+                   retries="0"/>
+
+    <bean id="userPlusService" class="com.lyg.blog.service.impl.UserPlusServiceImpl"/>
+    <dubbo:service interface="com.lyg.blog.service.UserPlusService" ref="userPlusService" protocol="dubbo"
+                   retries="0"/>
+</beans>

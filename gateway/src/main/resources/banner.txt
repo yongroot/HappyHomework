@@ -1,0 +1,44 @@
+                                                            
+               ${AnsiColor.RED}I                                            
+        ${AnsiColor.RED}L     )I                                            
+        ${AnsiColor.RED},       T  =+HL  i  LLL                             
+       ${AnsiColor.RED}.T    , LHHHHHHHHHHHHHHHHHHHHHH;                     
+        ${AnsiColor.RED})   HTTHHHHHHHHHHHHLHHHHHOHHHHHLHH                  
+         ${AnsiColor.RED}T+H THHHHHOHLHHTHHHHHHHHHHOHHHHHHHH                
+          ${AnsiColor.RED}LHHHHHLHHHHHHHHOLHHHHHHHH${AnsiColor.BLUE}O${AnsiColor.RED}HHHHHHHHHLT             
+           ${AnsiColor.RED}HLHHHLHHHHHHHHHHHHHHHOHHOHHHHHHOHHHLT            
+         ${AnsiColor.RED}TLiL)iii=)TL${AnsiColor.BLUE}H${AnsiColor.RED}HHLHHHHHHHHOHHOHHHHHOHOHHL)           
+        ${AnsiColor.RED}T) =,+==+;,+ILLHHHOHHHOHOOOHHOOOOOOOOHHHO;          
+            ${AnsiColor.RED}===;:,:+=H)HOHHHHLHOHHHH${AnsiColor.BLACK}O${AnsiColor.RED}HHHOHHO${AnsiColor.BLUE}H${AnsiColor.RED}OOHOOT         
+        ${AnsiColor.RED}; iL)=)Ii;::+)HHHLHHHHHHHOHOHHOOHOOHOOHHHHHL        
+         ${AnsiColor.RED},LTI+HHH:..,:TILHHHHHHOOHHHHHHHHOHO${AnsiColor.BLUE}O${AnsiColor.RED}OOHOOHHLI      
+          ${AnsiColor.RED}+i++HLH)+++;+HHHHHHHLHHHT=LHHOOOOOOOOHOHHHLLL     
+          ${AnsiColor.RED}==iHHTH+;;+H=iLHHOHHHHHHHHH)HOOHOHHOHOHHLLI IL    
+         ${AnsiColor.RED},;+=+LHHHLTii)TLHLLHOHHHHHL+iLOOOOOOO${AnsiColor.BLUE}O${AnsiColor.RED}OHHHTL   i   
+         ${AnsiColor.RED}IIIii+=I)i)))))ITIIHHLHHHI==i${AnsiColor.BLACK}O${AnsiColor.RED}OOOHHOHHOHHHHHT      
+           ${AnsiColor.RED}Ii=+=+=i)))))))I)LTHHT)T=HHOOHOHOHHHHHHHHHi      
+           ${AnsiColor.RED}L+=++==i)))I)))TITTHTLHO${AnsiColor.BLUE}O${AnsiColor.RED}OOHOHHOHOHOOHHHH+T.:    
+        ${AnsiColor.RED}:)Li+=iIii)III)))TIITHH==HOHOOHOOOO${AnsiColor.BLUE}H${AnsiColor.RED}OOOH L H)     : 
+      ${AnsiColor.RED}.=    =i))IITITITTILHHO${AnsiColor.BLACK}H${AnsiColor.RED}++=)LTHHHOOOHHHHHH  i T       
+    ${AnsiColor.RED};:      =ii))ITTLHHHHHHHH++;+=)THHHOHHHOOHTT          : 
+ ${AnsiColor.RED}I          =TTLLHHHHOHOOHOH=++==ITTHHHOO${AnsiColor.BLUE}O${AnsiColor.RED}HOHOH             
+                     ${AnsiColor.RED}ILOHHLi=i)i)THHOHHOHOHHHH,             
+                      ${AnsiColor.RED}TLHL)i=iHHOHOOOHHHOOHHHH              
+                     ${AnsiColor.RED}HHLLI)iLHOOHHOOOOHHHHOHHHH             
+                  ${AnsiColor.RED}LHHHHHTTLHHHOOHOOOOOOHHHOHHHHi            
+                  ${AnsiColor.RED}HHHHOHHHHOHHOOHOOOOHHOHOOHOHOH            
+                  ${AnsiColor.RED}LHHHHHOHOHOOOHHHH${AnsiColor.BLUE}H${AnsiColor.RED}HHHHHHHOHHOHH           
+                  ${AnsiColor.RED};HHOOHHOHHHHHOHHHOHOHHOHHOOHOHHH          
+                   ${AnsiColor.RED}HOHHHHHHHHHHOOOOHOHHOHHHOOOOHOHO         
+                  ${AnsiColor.RED}+HHHHHHHHHHHHOHHHHHOHHHHHOOHHHOHOH        
+                  ${AnsiColor.RED}HHHOOHHOHHHOLHHOHHHHHHOOOOOOHOOOHOH       
+                 ${AnsiColor.RED}HHHHHHOHOHHHHHHHHOHHHHOOOHOOOHHOOOOH${AnsiColor.BLACK}H      
+                ${AnsiColor.RED}HHOHHHOHHHHHHHHHHHHHHOHOOOOOOOOOOHHHOO      
+               ${AnsiColor.RED}LHHHOOOHOHHHHHHHHHHOOHOOHHHOHHOOOOOHOOOH     
+              ${AnsiColor.RED}THH${AnsiColor.BLACK}O${AnsiColor.RED}HHHHOHOHHHHHHHHOHHHOOHHOHOHOHHOHHOOHH     
+              ${AnsiColor.RED}HHHHHOHHHHOHHHHHHHHHOHOOOHHOOOOOHHHOOOOOO     
+             ${AnsiColor.RED}LHHHHHHHHHHHHHHHHHHOOO${AnsiColor.BLUE}O${AnsiColor.RED}OOOOOOHHOOOOHHHHHOHH    
+            ${AnsiColor.RED}HHHHHHHHHOOHHHHHHHHHHOHOOOOOHOOOHHOHOHOHHHH${AnsiColor.BLUE}H    
+           ${AnsiColor.RED}LHHHHHHHOOOHHHHHHHHOOOOHHOHOOOOOHHHHOHOOHHHH${AnsiColor.BLUE}H    
+${AnsiColor.YELLOW}${spring.application.name}
+Spring Boot${spring-boot.formatted-version}

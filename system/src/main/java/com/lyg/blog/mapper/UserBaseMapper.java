@@ -11,7 +11,6 @@ import java.util.Collection;
  * @Date 2020/2/4 14:42
  * @Email a460015041@gmail.com
  */
-@Mapper
 public interface UserBaseMapper {
 
     @Select("select count(1) from t_user where account = #{base.account} and passWord = #{base.passWord}")

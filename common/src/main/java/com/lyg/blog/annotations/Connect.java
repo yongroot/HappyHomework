@@ -21,6 +21,7 @@ public @interface Connect {
 
     /**
      * 关联目标字段名
+     *
      * @return
      */
     String targetName() default "";

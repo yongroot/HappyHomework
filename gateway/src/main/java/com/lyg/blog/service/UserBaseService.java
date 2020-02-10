@@ -13,10 +13,10 @@ import java.util.Map;
 public interface UserBaseService extends BaseService<UserBase> {
 
     /**
+     * 验证登录账号密码
+     * 账号密码正确创建并返回token，否则返回null
+     * 返回token
      * @param isBare 密码是否明文状态(已经进行MD5=false)
-     *               验证登录账号密码
-     *               账号密码正确创建并返回token，否则返回null
-     *               返回token
      */
     String loginIn(UserBase userBase, boolean isBare);
 

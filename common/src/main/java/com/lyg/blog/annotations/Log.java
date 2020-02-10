@@ -12,12 +12,14 @@ import java.lang.annotation.*;
 public @interface Log {
     /**
      * 标记名称
+     *
      * @return
      */
     String value() default "";
 
     /**
      * 是否需要持久化
+     *
      * @return
      */
     boolean save() default false;

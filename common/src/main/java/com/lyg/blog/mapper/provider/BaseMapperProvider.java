@@ -101,7 +101,7 @@ public abstract class BaseMapperProvider implements BaseMapperInterface {
 
                         // 分辨当前属性是否为更新凭证字段
                         boolean isKey = column.updateKey();
-                        StringBuilder basis =  isKey? sql : sql2;
+                        StringBuilder basis = isKey ? sql : sql2;
                         if (basis.lastIndexOf("}") == basis.length() - 1) {
                             basis.append(isKey ? " and " : " , ");
                         }
@@ -122,7 +122,7 @@ public abstract class BaseMapperProvider implements BaseMapperInterface {
 
     public String list(Map<String, Object> param) {
         String listSql = listAll(param);
-        Page page = (Page)param.get("page");
+        Page page = (Page) param.get("page");
         if (page != null) {
             int pageNum = page.getPageNum();
             int pageSize = page.getPageSize();

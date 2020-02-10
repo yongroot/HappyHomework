@@ -12,7 +12,6 @@ import java.util.List;
  * @Date 2020/2/5 12:50
  * @Email a460015041@gmail.com
  */
-@Mapper
 public interface UserPlusMapper {
 
     @InsertProvider(type = UserPlusMapperProvider.class, method = "insert")

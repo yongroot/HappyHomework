@@ -1,6 +1,6 @@
 spring:
   application:
-    name: mySuperBlog
+    name: system
   profiles:
     active: slf4j,tomcat,db
 

@@ -29,7 +29,12 @@ public class UserBaseServiceImpl implements UserBaseService {
      * value[0]为前端用户传来的密码,value[1]为服务器生成的token
      */
     private static final int PredictTotal = 1000;
+    //TODU以后把这个放到redis管理
     private static final Map<String, String[]> TokenCache = new ConcurrentHashMap<>((int) ((PredictTotal / 0.75) + 1));
+
+    public Map<String, String[]> getToken() {
+        return TokenCache;
+    }
 
     @Resource
     private UserBaseMapper userBaseMapper;
@@ -39,21 +44,29 @@ public class UserBaseServiceImpl implements UserBaseService {
         String account = userBase.getAccount();
         String passWord = userBase.getPassWord();
         String token = null;
+//
+//        String[] userInfo = TokenCache.get(account);
+//
+//        // 账号存在登录缓存，从缓存获取密码验证
+//        if (userInfo != null && userInfo[0].equals(passWord)) {
+//            token = userInfo[1];
+//        }
+//        // db验证账号密码，生成并缓存token
+//        else {
+//            Integer salt = userBaseMapper.getSalt(userBase.getAccount());
+//            if (salt != null) {
+//                userBase.setPassWord(MD5Util.getMD5(userBase.getPassWord() + salt));
+//                if (userBaseMapper.loginIn(userBase)) {
+//                    TokenCache.put(account, new String[]{passWord, token = UUID.randomUUID().toString()});
+//                }
+//            }
+//        }
 
-        String[] userInfo = TokenCache.get(account);
-
-        // 账号存在登录缓存，从缓存获取密码验证
-        if (userInfo != null && userInfo[0].equals(passWord)) {
-            token = userInfo[1];
-        }
-        // db验证账号密码，生成并缓存token
-        else {
-            Integer salt = userBaseMapper.getSalt(userBase.getAccount());
-            if (salt != null) {
-                userBase.setPassWord(MD5Util.getMD5(userBase.getPassWord() + salt));
-                if (userBaseMapper.loginIn(userBase)) {
-                    TokenCache.put(account, new String[]{passWord, token = UUID.randomUUID().toString()});
-                }
+        Integer salt = userBaseMapper.getSalt(userBase.getAccount());
+        if (salt != null) {
+            userBase.setPassWord(MD5Util.getMD5(userBase.getPassWord() + salt));
+            if (userBaseMapper.loginIn(userBase)) {
+                TokenCache.put(token = UUID.randomUUID().toString(), new String[]{account, passWord});
             }
         }
         // 密码错误时token为null
